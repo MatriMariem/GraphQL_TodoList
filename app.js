@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const expressGraphql = require('express-graphql');
+const expressGraphql = require('express-graphql').graphqlHTTP;
 const mongoose = require('mongoose');
+const graphQlSchema = require('./graphql/schema.js');
+const graphQlResolvers = require('./graphql/resolvers.js');
 
 require('dotenv').config();
 
@@ -11,10 +13,10 @@ app.use(bodyParser.json());
 
 
 app.use(
-  '/graphql',
+  '/',
   expressGraphql({
-    schema: ,
-    rootValue: ,
+    schema: graphQlSchema,
+    rootValue: graphQlResolvers,
     graphiql: true
   })
 );

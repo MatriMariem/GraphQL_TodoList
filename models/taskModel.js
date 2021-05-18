@@ -11,11 +11,7 @@ const taskschema = mongoose.Schema({
     comments: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "Comment"
-   }],
-   createdAt: {
-     type: Date,
-     default: Date.now
-   }
+   }]
 })
 
 module.exports = mongoose.model("Task", taskschema)
