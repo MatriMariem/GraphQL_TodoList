@@ -1,7 +1,7 @@
-const User = require('../models/userModel');
-const Task = require('../models/taskModel');
-const Comment = require('../models/commentModel');
-const graphQlResolvers = {
+const User = require('../../models/userModel');
+const Task = require('../../models/taskModel');
+const Comment = require('../../models/commentModel');
+const generalResolver = {
 
 
   users: async () => {
@@ -33,4 +33,4 @@ const graphQlResolvers = {
 
 };
 
-module.exports = graphQlResolvers;
+module.exports = generalResolver;
