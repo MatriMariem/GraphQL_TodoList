@@ -1,7 +1,7 @@
 const User = require('../../models/userModel');
 const Task = require('../../models/taskModel');
 const Comment = require('../../models/commentModel');
-const { bindusers, bindtasks } = require('./bind');
+const { bindusers, bindtasks, bindcomments } = require('./bind');
 
 
 const generalResolver = {

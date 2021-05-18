@@ -43,9 +43,9 @@ type Mutation {
     signUp(username: String!, email: String!, password: String!): User
     addTask(taskContent: String!): Task
     shareTask(userId: ID!, taskId: ID!): Task
-    editTask(taskId: ID!): Task
+    editTask(taskId: ID!, taskContent: String!): Task
     commentTask(taskId: ID!, commentContent: String!): Task
-    doneTask(taskId: ID!): Task
+    checkTask(taskId: ID!): Task
     deleteTask(taskId: ID!): Task
 }
 schema {

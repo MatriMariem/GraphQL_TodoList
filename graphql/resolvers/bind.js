@@ -23,6 +23,7 @@ const bindUser = async (userId) => {
     return {
       ...user._doc,
       _id: user.id,
+      password: null,
       tasks: bindtasks.bind(this, user._doc.tasks),
       sharedTasks: bindtasks.bind(this, user._doc.sharedTasks),
       comments: bindcomments.bind(this, user._doc.comments)
