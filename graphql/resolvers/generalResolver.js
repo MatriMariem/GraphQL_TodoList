@@ -1,13 +1,15 @@
 const User = require('../../models/userModel');
 const Task = require('../../models/taskModel');
 const Comment = require('../../models/commentModel');
-const generalResolver = {
+const { bindusers, bindtasks } = require('./bind');
 
+
+const generalResolver = {
 
   users: async () => {
     try {
       const users = await User.find();
-      return users;
+      return bindusers(users);
     } catch (err) {
       throw err;
     }
@@ -16,7 +18,7 @@ const generalResolver = {
   tasks: async ({userId}) => {
     try {
       const tasks = await Task.find({createdBy: userId});
-      return tasks;
+      return bindtasks(tasks);
     } catch (err) {
       throw err;
     }
@@ -25,7 +27,7 @@ const generalResolver = {
   comments: async ({taskId}) => {
     try {
       const comments = await Comment.find({createdIn: taskId});
-      return comments;
+      return bindcomments(comments);
     } catch (err) {
       throw err;
     }

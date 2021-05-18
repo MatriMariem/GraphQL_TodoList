@@ -1,10 +1,12 @@
-const generalResolver = require('./general');
-const authResolver = require('./auth');
+const generalResolver = require('./generalResolver');
+const authResolver = require('./authResolver');
+const taskResolver = require('./taskResolver');
 
 const graphQlResolvers = {
 
   ...generalResolver,
   ...authResolver,
+  ...taskResolver,
 
 };
 

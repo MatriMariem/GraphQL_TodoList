@@ -13,6 +13,7 @@ type Task {
 type User {
   _id: ID!
   email: String!
+  username: String!
   password: String
   tasks: [Task!]
   sharedTasks: [Task!]
@@ -35,7 +36,7 @@ type Query {
   users: [User!]!
   tasks(userId: ID!): [Task!]!
   comments(taskId: ID!): [Comment!]!
-  login(email: String!, password: String!): Auth!
+  login(email: String!, password: String!): Auth
   logout: String
 }
 type Mutation {

@@ -4,6 +4,7 @@ const expressGraphql = require('express-graphql').graphqlHTTP;
 const mongoose = require('mongoose');
 const graphQlSchema = require('./graphql/schema.js');
 const graphQlResolvers = require('./graphql/resolvers/allResolvers.js');
+const auth = require('./auth');
 
 require('dotenv').config();
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use(auth);
 
 app.use(
   '/',

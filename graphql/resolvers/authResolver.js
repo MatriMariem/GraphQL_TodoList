@@ -20,7 +20,7 @@ module.exports = {
       }
 
       const salt = await bcrypt.genSalt(10);
-      const hashpassword = await bcrypt.hash(args.password, salt);
+      const hashedPassword = await bcrypt.hash(args.password, salt);
 
       const user = new User({
         email: args.email,
@@ -29,14 +29,13 @@ module.exports = {
       });
 
       const savedUser = await user.save();
-
       return { ...savedUser._doc, password: null, _id: savedUser.id };
     } catch (err) {
       throw err;
     }
   },
 
-  login: async (args) => {
+  login: async (args, req, res) => {
     const user = await User.findOne({ email: args.email });
     if (!user) {
       throw new Error('User does not exist!');
@@ -45,27 +44,28 @@ module.exports = {
     if (!correctPassword) {
       throw new Error('Wrong password!');
     }
-
-    jwtr.sign(
+    try {
+    const token = jwtr.sign(
       {"userId": user._id},
       process.env.SECRET_TOKEN
-    ).then((token) => {
-      res.header('auth-token', token);
-      res.send({
-        token: token,
-        userId: user._id,
-      });
-    }).catch((error) => {
+    );
+    return ({token: token, userId: user._id,});
+  }
+    catch(error){
       console.log(`error = ${error}`);
-      res.send({ status: 'error', message: error });
-    });
+      throw new Error('Cannot login!');
+    };
   },
 
   logout: async (args, req) => {
     try {
+      if (!req.user)
+      {
+        return "Already logged out";
+      }
       const destroyed = await jwtr.destroy(req.user.jti);
-      res.header('auth-token', '');
-      return "logout";
+      // res.header('auth-token', '');
+      return "logged out";
     } catch (err) {
       throw err;
     }
