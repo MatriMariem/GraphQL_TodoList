@@ -21,7 +21,7 @@ npm start
 ````
 > **Step 5:** Open this URL http://localhost:3000/ in your browser
 ***
-> **Step 6:** Make your desired queries (Please check the 'Essential operations' part or watch my demo)
+> **Step 6:** Make your desired queries (Please check the 'Examples of Usage' part or watch my demo)
 ***
 > **Step 7:** In order to stop the application from running, press Control and c.
 ````
@@ -58,6 +58,7 @@ There are 2 main types of operations:
 - **deleteComment(commentId)** deletes a comment and returns it
 
 ## Authentication and Authorization
+**Authentication was implemented using jwt-redis***
 - **non connected users** can get the list of users, tasks and comments. they also can create an account and login.
 - **connected users** can also create, edit, comment and switch the status of their own tasks. They can also share their tasks with other users.
   - **only owners of a task** can delete that task
@@ -87,10 +88,10 @@ query {
   }
 }
 ````
-You must copy the returned token value and add it as a value to a custom request header called 'auth-token' in order to be able to connect with that user when you make your next request.
-for example:
-**auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGE1MmViNjcyNjdkYjE0OTM1NDE1YjgiLCJqdGkiOiJYMUdFbzNabTZ3IiwiaWF0IjoxNjIxNDM4MTc5fQ.0yedTLJiuvJVafcpYvP8NunnfyMh4qBSJ8YEcifLyHs**
-In order to create a custom request header, you can use several extentions, such as postman and ModHeader.
+You must copy the returned token value and add it as a value to a custom request header called 'auth-token' in order to be able to connect with that user when you make your next request.  
+for example:  
+**auth-token:**   **eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGE1MmViNjcyNjdkYjE0OTM1NDE1YjgiLCJqdGkiOiJYMUdFbzNabTZ3IiwiaWF0IjoxNjIxNDM4MTc5fQ.0yedTLJiuvJVafcpYvP8NunnfyMh4qBSJ8YEcifLyHs**  
+In order to create a custom request header, you can use several extensions, such as postman and ModHeader.
 ### Create a new task
 **(make sure you are connected using the token!)**
 ````
