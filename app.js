@@ -1,12 +1,17 @@
+// ENTRY POINT OF THE BACKEND API
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const expressGraphql = require('express-graphql').graphqlHTTP;
-const mongoose = require('mongoose');
+
 const graphQlSchema = require('./graphql/schema.js');
 const graphQlResolvers = require('./graphql/resolvers/allResolvers.js');
-const auth = require('./auth');
 
+const mongoose = require('mongoose');
+const auth = require('./auth');
 require('dotenv').config();
+
+
 
 const app = express();
 
@@ -23,6 +28,7 @@ app.use(
   })
 );
 
+// CONNECT TO THE MONGO ATLAS DATABASE
 mongoose.connect(
   process.env.DATABASE_CONNECT,
   { useNewUrlParser: true , useUnifiedTopology: true },
@@ -31,4 +37,5 @@ mongoose.connect(
   }
 );
 
+// RUN THE APP
 app.listen(3000, () => console.log('App Started'));

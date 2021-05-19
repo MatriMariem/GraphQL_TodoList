@@ -47,6 +47,7 @@ type Mutation {
     commentTask(taskId: ID!, commentContent: String!): Task
     checkTask(taskId: ID!): Task
     deleteTask(taskId: ID!): Task
+    deleteComment(commentId: ID!): Comment
 }
 schema {
     query: Query

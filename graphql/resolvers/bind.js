@@ -2,6 +2,7 @@ const User = require('../../models/userModel');
 const Task = require('../../models/taskModel');
 const Comment = require('../../models/commentModel');
 
+// BIND ONE TASK OBJECT IN ORDER TO GET SUBFIELDS OF ITS NESTED OBJECTS
 const bindTask = async (taskId) => {
   try {
     const task = await Task.findById(taskId);
@@ -17,6 +18,7 @@ const bindTask = async (taskId) => {
   }
 };
 
+// BIND ONE USER OBJECT IN ORDER TO GET SUBFIELDS OF ITS NESTED OBJECTS
 const bindUser = async (userId) => {
   try {
     const user = await User.findById(userId);
@@ -33,6 +35,8 @@ const bindUser = async (userId) => {
   }
 };
 
+
+// BIND ONE COMMENT OBJECT IN ORDER TO GET SUBFIELDS OF ITS NESTED OBJECTS
 const bindComment = async (commentId) => {
   try {
     const comment = await Comment.findById(commentId);
@@ -47,6 +51,8 @@ const bindComment = async (commentId) => {
   }
 };
 
+
+// BIND MANY USER OBJECTS
 const bindusers = async (users) => {
   try {
     return users.map((u) => { return bindUser(u); });
@@ -54,6 +60,8 @@ const bindusers = async (users) => {
     throw err;
   }
 };
+
+// BIND MANY TASK OBJECTS
 const bindtasks = async (tasks) => {
   try {
     return tasks.map((t) => { return bindTask(t); });
@@ -61,6 +69,8 @@ const bindtasks = async (tasks) => {
     throw err;
   }
 };
+
+// BIND MANY COMMENT OBJECTS
 const bindcomments = async (comments) => {
   try {
     return comments.map((c) => { return bindComment(c); });
@@ -68,6 +78,8 @@ const bindcomments = async (comments) => {
     throw err;
   }
 };
+
+
 module.exports = {
   bindTask,
   bindUser,

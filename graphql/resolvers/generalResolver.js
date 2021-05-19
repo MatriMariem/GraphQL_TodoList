@@ -6,15 +6,20 @@ const { bindusers, bindtasks, bindcomments } = require('./bind');
 
 const generalResolver = {
 
+  // GET ALL USERS
   users: async () => {
     try {
+
       const users = await User.find();
+
+      // bindusers FUNCTION IS USED TO GET SUBFIELDS OF NESTED OBJECTS
       return bindusers(users);
+
     } catch (err) {
       throw err;
     }
   },
-
+  // GET ALL TASKS OF A SPECIFIC USER
   tasks: async ({userId}) => {
     try {
       const tasks = await Task.find({createdBy: userId});
@@ -24,6 +29,7 @@ const generalResolver = {
     }
   },
 
+  // GET ALL COMMENTS IN A SPECIFIC TASK
   comments: async ({taskId}) => {
     try {
       const comments = await Comment.find({createdIn: taskId});

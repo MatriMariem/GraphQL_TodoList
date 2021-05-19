@@ -1,3 +1,4 @@
+// COMBINES ALL RESOLVERS
 const generalResolver = require('./generalResolver');
 const authResolver = require('./authResolver');
 const taskResolver = require('./taskResolver');
