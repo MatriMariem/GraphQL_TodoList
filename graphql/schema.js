@@ -34,6 +34,7 @@ type Comment {
 
 type Query {
   users: [User!]!
+  user(username: String!): User
   tasks(userId: ID!): [Task!]!
   comments(taskId: ID!): [Comment!]!
   login(email: String!, password: String!): Auth

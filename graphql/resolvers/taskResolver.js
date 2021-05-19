@@ -202,11 +202,10 @@ const taskResolver = {
 
     // DELETE IT FROM ADDED USERS OBJECTS
   task.sharedWith.map( async (id) => {
-    const user = await User.findById(id);
-    if (user) {
-      user.sharedTasks.splice(user.sharedTasks.indexOf(taskId), 1);
-      await user.save();
-    }
+      let updateduser = await User.updateOne(
+        { _id: id},
+        {$pull: {'sharedTasks': taskId}}
+      );
   })
 
   // DELETE THE COMMENTS OF THAT TASK
@@ -214,9 +213,12 @@ const taskResolver = {
       const comment = await Comment.findById(id);
       if (comment) {
         // DELETE EACH COMMENT FROM THE OWNER USER OBJECT
-        const user = await User.findById(comment.createdBy);
-        user.comments.splice(user.comments.indexOf(id), 1);
-        await user.save();
+
+        let updateduser = await User.updateOne(
+          { _id: comment.createdBy},
+          {$pull: {'comments': id}}
+        );
+
         // DELETE THE COMMENT OBJECT
         const removedComment = await Comment.remove({ _id: id });
       }

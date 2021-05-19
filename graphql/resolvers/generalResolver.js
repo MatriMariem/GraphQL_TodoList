@@ -1,7 +1,7 @@
 const User = require('../../models/userModel');
 const Task = require('../../models/taskModel');
 const Comment = require('../../models/commentModel');
-const { bindusers, bindtasks, bindcomments } = require('./bind');
+const { bindusers, bindtasks, bindcomments, bindUser } = require('./bind');
 
 
 const generalResolver = {
@@ -19,6 +19,21 @@ const generalResolver = {
       throw err;
     }
   },
+
+  // GET A USER BY USERNAME
+  user: async ({username}) => {
+    try {
+
+      const user = await User.findOne({username: username});
+
+      // bindusers FUNCTION IS USED TO GET SUBFIELDS OF NESTED OBJECTS
+      return bindUser(user);
+
+    } catch (err) {
+      throw err;
+    }
+  },
+
   // GET ALL TASKS OF A SPECIFIC USER
   tasks: async ({userId}) => {
     try {
