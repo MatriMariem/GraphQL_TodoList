@@ -20,7 +20,9 @@ npm i
 npm start
 ````
 > **Step 5:** Open this URL http://localhost:3000/ in your browser
+***
 > **Step 6:** Make your desired queries (Please check the 'Essential operations' part or watch my demo)
+***
 > **Step 7:** In order to stop the application from running, press Control and c.
 ````
 Crtl+c
