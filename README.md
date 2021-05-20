@@ -2,7 +2,14 @@
 **This is a Backend for a Todo list application, using GraphQL, MongoDB, NodeJs, Express, jwt-redis...**
 
 ## DEMO
-https://drive.google.com/file/d/17SdwRvd7Cd4zB1ZTjhEY_3KeGQHVSExN/view?usp=sharing, https://drive.google.com/file/d/19sKH1PWsXkrSkc2MqM74uDRu9x9j1juE/view?usp=sharing, https://drive.google.com/file/d/1YZjJQPVgShuWV_1kDcCpKgzYHCOPnDqJ/view?usp=sharing, https://drive.google.com/file/d/1euEKGmdl3-rShqUqDc7Zy-yHp0pR9MAJ/view?usp=sharing, https://drive.google.com/file/d/1qiq27tFB5cZkHJ7vGKLgel4oLKLgaNey/view?usp=sharing, https://drive.google.com/file/d/1u_EWMW6mvQpfFC_Wko3buQrMI7xwQfDk/view?usp=sharing
+
+- 1/6 https://drive.google.com/file/d/1YZjJQPVgShuWV_1kDcCpKgzYHCOPnDqJ/view?usp=sharing,
+- 2/6 https://drive.google.com/file/d/1u_EWMW6mvQpfFC_Wko3buQrMI7xwQfDk/view?usp=sharing
+- 3/6 https://drive.google.com/file/d/17SdwRvd7Cd4zB1ZTjhEY_3KeGQHVSExN/view?usp=sharing
+- 4/6 https://drive.google.com/file/d/19sKH1PWsXkrSkc2MqM74uDRu9x9j1juE/view?usp=sharing,
+- 5/6 https://drive.google.com/file/d/1qiq27tFB5cZkHJ7vGKLgel4oLKLgaNey/view?usp=sharing,
+- 6/6 https://drive.google.com/file/d/1euEKGmdl3-rShqUqDc7Zy-yHp0pR9MAJ/view?usp=sharing,
+
 ## USAGE
 You can try the API by following these steps:
 > **Step 1:** Clone my repository using this command, (you need to have git installed on your machine first)
